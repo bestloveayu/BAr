@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>星光酒吧冒險</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="showIntro()">
+    <div id="overlay" class="hidden"></div>
+    <div id="cutscene" class="hidden">
+        <p id="cutscene-text"></p>
+    </div>
+    <div id="top-bar">
+        <div id="task-counter">已完成任務：0/2</div>
+        <div id="reputation">酒館聲望：10</div>
+        <div id="gold-coins">金幣：5</div>
+    </div>
+    <div id="character-selection" class="hidden">
+        <h2>選擇你的調酒師</h2>
+        <div id="characters">
+            <div class="character-option" onclick="startWithCharacter('erin')">
+                <img src="images/erin_neutral.png" alt="艾琳">
+                <p>艾琳 - 新手調酒師</p>
+                <p>簡介：對調酒充滿熱情但經驗不足，需要你的幫助。</p>
+                <p>難度：★☆☆</p>
+            </div>
+            <div class="character-option" onclick="startWithCharacter('joe')">
+                <img src="images/joe_neutral.png" alt="喬">
+                <p>喬 - 酒吧老闆</p>
+                <p>簡介：嚴厲的老闆，測試你的應變能力。</p>
+                <p>難度：★★☆</p>
+            </div>
+            <div class="character-option" onclick="startWithCharacter('vip')">
+                <img src="images/vip_neutral.png" alt="VIP">
+                <p>VIP - 挑剔顧客</p>
+                <p>簡介：要求高雅的調酒，挑戰你的極限。</p>
+                <p>難度：★★★</p>
+            </div>
+        </div>
+    </div>
+    <div id="task-selection" class="hidden">
+        <h2>選擇任務</h2>
+        <div id="tasks"></div>
+    </div>
+    <div id="game-container" class="hidden">
+        <div id="sidebar">
+            <h3>選擇角色</h3>
+            <button id="erin-btn" onclick="confirmSwitch('erin')">艾琳（主線）</button>
+            <button id="joe-btn" onclick="confirmSwitch('joe')">老闆喬（支線）</button>
+            <button id="vip-btn" onclick="confirmSwitch('vip')">VIP顧客（支線）</button>
+        </div>
+        <div id="main-content">
+            <img id="character-img" src="images/erin_neutral.png" alt="角色">
+            <img id="senior-bartender" src="images/senior_bartender.png" alt="資深酒保" onclick="getHint()">
+            <h1>星光酒吧冒險</h1>
+            <p id="story"></p>
+            <div id="material-inputs"></div>
+            <button onclick="capturePhoto()">拍照辨識</button>
+            <button onclick="checkAnswer()">提交</button>
+            <div id="result-container">
+                <p id="result"></p>
+                <img id="customer-expression" src="" alt="表情" style="display:none;">
+            </div>
+        </div>
+        <div id="remaining-tasks" class="hidden">
+            <h3>剩餘任務</h3>
+            <div id="task-list"></div>
+        </div>
+    </div>
+    <div id="completed-characters">
+        <h3>已完成角色</h3>
+        <div id="completed-list"></div>
+    </div>
+    <audio id="background-music" loop>
+        <source src="audio/bar_ambience.mp3" type="audio/mpeg">
+    </audio>
+    <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

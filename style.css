@@ -1,0 +1,245 @@
+body {
+    background: url('images/bar_background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+#overlay, #cutscene, #character-selection, #task-selection {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#cutscene {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFD700;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000;
+    z-index: 3000;
+}
+
+#top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    z-index: 2000;
+}
+
+#task-counter, #reputation, #gold-coins {
+    background: rgba(139, 69, 19, 0.9);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #FFD700;
+}
+
+#character-selection, #task-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    border: 5px solid #8B4513;
+    box-shadow: inset 0 0 10px #000;
+    z-index: 1001;
+}
+
+#characters, #tasks {
+    display: flex;
+    gap: 20px;
+}
+
+.character-option, .task-option {
+    text-align: center;
+    cursor: pointer;
+    background: rgba(139, 69, 19, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #FFD700;
+    transition: background 0.3s;
+}
+
+.character-option:hover, .task-option:hover {
+    background: rgba(139, 69, 19, 1);
+}
+
+.character-option img {
+    width: 100px;
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 60px auto 0;
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    border: 5px solid #8B4513;
+    box-shadow: 0 0 15px #FFD700;
+    z-index: 500;
+}
+
+#sidebar {
+    width: 20%;
+    background: rgba(139, 69, 19, 0.8);
+    padding: 10px;
+    text-align: center;
+    border-right: 3px solid #FFD700;
+}
+
+#main-content {
+    width: 80%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#character-img {
+    width: 100px;
+    position: absolute;
+    left: 20%;
+    bottom: 20px;
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+}
+
+#senior-bartender {
+    width: 100px;
+    position: absolute;
+    right: 20%;
+    bottom: 20px;
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#material-inputs {
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #FFD700;
+}
+
+.material-select {
+    padding: 5px;
+    margin: 5px;
+    background: #FFF;
+    color: #000;
+    border: 1px solid #8B4513;
+    border-radius: 3px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    background: #FFD700;
+    color: #8B4513;
+    border: 2px solid #8B4513;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #FFA500;
+}
+
+#customer-expression {
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+}
+
+#remaining-tasks {
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-top: 3px solid #FFD700;
+}
+
+#task-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.task-option {
+    text-align: center;
+    cursor: pointer;
+    background: rgba(139, 69, 19, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #FFD700;
+    transition: background 0.3s;
+}
+
+.task-option:hover {
+    background: rgba(139, 69, 19, 1);
+}
+
+#completed-characters {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 20%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-left: 3px solid #FFD700;
+    z-index: 1000;
+    height: calc(100% - 60px); /* 適應top-bar高度 */
+    overflow-y: auto;
+}
+
+#completed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.completed-info {
+    background: rgba(139, 69, 19, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #FFD700;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
